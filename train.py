@@ -30,8 +30,8 @@ print(model.summary())
 plot_model(model, to_file='cnn_dilation.png', show_shapes=True)
 
 # 设置训练参数
-train_data = CaptchaSequence(characters, batch_size=128, steps=1000, path='image')
-valid_data = CaptchaSequence(characters, batch_size=128, steps=100, path='image2')
+train_data = CaptchaSequence(characters, batch_size=128, steps=1000, path='train')
+valid_data = CaptchaSequence(characters, batch_size=128, steps=100, path='test')
 callbacks = [EarlyStopping(patience=3),
              CSVLogger('cnn_dilation.csv'),
              ModelCheckpoint('cnn_best_dilation.h5',

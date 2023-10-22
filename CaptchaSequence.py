@@ -20,6 +20,7 @@ class CaptchaSequence(Sequence):
     def __len__(self):
         return self.steps
 
+    # 生成一个batch的数据
     def __getitem__(self, idx):
         X = np.zeros((self.batch_size, self.height, self.width, 3), dtype=np.float32)
         y = [np.zeros((self.batch_size, self.n_class), dtype=np.uint8) for i in range(self.n_len)]
@@ -29,7 +30,7 @@ class CaptchaSequence(Sequence):
                 y[j][i] = self.coder.encode(ch)
         return X, y
 
-
+# 字符编码器
 class Coder:
     def __init__(self, characters):
         self.characters = characters.lower()
@@ -42,7 +43,7 @@ class Coder:
     def decode(self, array):
         return self.characters[np.argmax(array)]
 
-
+# 图片生成器
 class ImageGenerate:
     def __init__(self, path):
         def f1(s):
