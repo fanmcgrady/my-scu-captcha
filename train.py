@@ -12,8 +12,8 @@ import string
 characters = string.digits + string.ascii_lowercase
 
 # 设置宽度、高度、字符长度、字符种类width, height, n_len, n_class
-width = 60
-height = 180
+width = 180
+height = 60
 n_len = 4
 n_class = len(characters)
 
