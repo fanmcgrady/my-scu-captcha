@@ -4,7 +4,7 @@ import matplotlib.image as mpimg
 import random
 import os
 
-
+# 数据生成器
 class CaptchaSequence(Sequence):
     def __init__(self, characters, batch_size, path, steps, n_len=4, width=180, height=60):
         self.characters = characters

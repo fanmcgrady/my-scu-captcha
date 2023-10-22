@@ -13,6 +13,7 @@ X = X.reshape(-1, 60, 180, 3)
 
 characters = string.digits + string.ascii_lowercase
 
+# 预测
 y_pred = model.predict(X)
 for i in y_pred:
     print(characters[np.argmax(i)], end='')

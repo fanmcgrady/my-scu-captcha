@@ -37,6 +37,7 @@ callbacks = [EarlyStopping(patience=3),
              ModelCheckpoint('cnn_best_dilation.h5',
                              save_best_only=True)]
 
+# 编译模型
 model.compile(loss='categorical_crossentropy',
               optimizer=Adam(1e-3, amsgrad=True),
               metrics=['accuracy'])
