@@ -6,7 +6,7 @@ import matplotlib.image as mpimg
 model = keras.models.load_model('cnn_best_dilation.h5')
 
 # 读取测试图片
-path = "test/cp6p.jpg"
+path = "test/cp7m.jpg"
 X, y = mpimg.imread(path) / 255, path.split('.')[0].lower()
 X = X.reshape(-1, 60, 180, 3)
 

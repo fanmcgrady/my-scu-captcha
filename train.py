@@ -6,10 +6,16 @@ from tensorflow.keras.utils import plot_model
 from CaptchaSequence import *
 import string
 
+
+
 # 设置字符范围
 characters = string.digits + string.ascii_lowercase
-# 设置宽度、高度、字符长度、字符种类
-width, height, n_len, n_class = 180, 60, 4, len(characters)
+
+# 设置宽度、高度、字符长度、字符种类width, height, n_len, n_class
+width = 60
+height = 180
+n_len = 4
+n_class = len(characters)
 
 # 构建CNN模型
 input_tensor = Input((height, width, 3))
@@ -25,7 +31,7 @@ x = Flatten()(x)
 x = [Dense(n_class, activation='softmax', name='c%d' % (i + 1))(x) for i in range(n_len)]
 model = Model(inputs=input_tensor, outputs=x)
 
-# 打印模型结构
+# 打印模型
 print(model.summary())
 plot_model(model, to_file='cnn_dilation.png', show_shapes=True)
 
